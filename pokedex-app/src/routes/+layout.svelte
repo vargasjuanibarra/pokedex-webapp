@@ -4,7 +4,7 @@
   import Footer from "../components/Footer.svelte";
 </script>
 
-<div class="relative flex flex-col max-w-[1231px] mx-auto w-full text-sm sm:text-base min-h-screen">
+<div class="relative flex flex-col mx-auto w-full max-w-[1400px] text-sm sm:text-base min-h-screen">
   <Header />
   <slot />
   <Footer />
