@@ -3,6 +3,7 @@
   import Card from "./Card.svelte";
   import axios from "axios";
   import { pokemonID } from "../Store";
+  import Header from "./Header.svelte";
 
   let pokemons: any = [];
   const POKEMON_URL = "https://pokeapi.co/api/v2/pokemon";
@@ -17,7 +18,7 @@
     pokemonID.set(index + 1);
   }
 </script>
-
+<Header />
 <main class="relative mx-2 bg-slate-50 rounded-2xl min-h-screen">
   <section class="flex flex-wrap justify-center gap-5 p-2 text-center">
     {#each pokemons as pokemon, index}
