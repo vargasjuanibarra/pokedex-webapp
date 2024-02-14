@@ -17,6 +17,10 @@
   function getPokemonId(index: any) {
     pokemonID.set(index + 1);
   }
+
+  function nameToUppercase(name: string) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
 </script>
 <Header />
 <main class="relative mx-2 bg-slate-50 rounded-2xl min-h-screen">
@@ -26,7 +30,7 @@
         href="/pokemon/pokemonId={index + 1}"
         on:click={() => getPokemonId(index)}
       >
-        <Card pokemon {index} name={pokemon.name} />
+        <Card pokemon {index} name={nameToUppercase(pokemon.name)} />
       </a>
     {/each}
   </section>

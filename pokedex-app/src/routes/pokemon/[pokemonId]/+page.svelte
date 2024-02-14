@@ -111,16 +111,16 @@
   }
 </script>
 
-<div class="absolute right-0">
+<div class="absolute right-0 w-[400px] h-[400px] m-auto z-3">
   <img
     src="../assets/pokeball.svg"
     alt=""
-    class="opacity-15 min-w-[350px] h-auto"
+    class="opacity-15 w-full"
   />
 </div>
 <div class="flex flex-row">
   <h1 class="mx-auto mt-12">
-    <i class="fa-solid fa-arrow-left text-2xl mx-4"></i>
+    <i class="fa-solid fa-arrow-left text-2xl mx-4 shadow-xl transform transition duration-200 hover:scale-150"></i>
     <span class="text-4xl">
       <strong>{pokemon?.name}</strong>
     </span>
@@ -131,34 +131,35 @@
     >
   </h1>
 </div>
-<figure
-  class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-2/4 z-[1]"
->
-  <div class="flex flex-row items-center">
-    <div class="mx-4 bg-slate-50">
-      <img src="../assets/chevron_left.svg" alt="" />
+<!-- <div class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-2/4 z-[1]"> -->
+<div class="my-4 pt-4 px-2 pb-2 transform translate-y-12 z-[1]">
+  <figure>
+    <div class="flex justify-center">
+      <div class="flex justify-center mx-4">
+        <img class="transform transition duration-200 hover:scale-125" src="../assets/chevron_left.svg" alt="" />
+      </div>
+      <div class="relative flex justify-center w-[200px] h-[200px] z-3">
+        <img
+          src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/{id}.svg"
+          alt={pokemon?.name}
+        />
+      </div>
+      <div class="flex justify-center mx-4">
+        <img class="transform transition duration-200 hover:scale-125" src="../assets/chevron_right.svg" alt="" />
+      </div>
     </div>
-    <div class="relative flex justify-center w-[300px] h-[300px] m-auto z-3">
-      <img
-        src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/{id}.svg"
-        alt={pokemon?.name}
-      />
-    </div>
-    <div class="mx-4 bg-slate-50">
-      <img src="../assets/chevron_right.svg" alt="" />
-    </div>
-  </div>
-</figure>
+  </figure>
+</div>
 
-<div class="relative card shadow-xl min-h-screen translate-y-1/4">
+<div class="relative shadow-xl min-h-screen">
   <div class=" rounded-md bg-slate-100 w-full mt-5">
     <div class="card-body text-black">
-      <section class="flex justify-center translate-y-12">
+      <section class="flex justify-center translate-y-4">
         <div>
-          <div class="flex gap-2">
+          <div class="flex justify-center gap-2">
             {#if pokemon?.types.length > 0}
               {#each pokemon.types as type, index}
-                <div class="badge badge-primary text-lg px-4 py-3 text-white"><strong>{type}</strong></div>
+                <div class="badge badge-primary text-md px-2 py-2 text-white"><strong>{type}</strong></div>
               {/each}
             {/if}
           </div>
@@ -167,52 +168,52 @@
               <strong>About</strong>
             </h1>
           </div>
-          <div class="flex flex-row justify-center gap-3 w-8 border-solid">
-            <div class="md:border-r border-gray-500 border-solid">
-              <div class="w-96 flex flex-row justify-center gap-2">
-                <img src="../assets/weight.svg" alt="" width="35px" />
-                <span
-                  ><p class="text-justify text-lg">
+          <div class="flex justify-center w-full mx-2 my-4">
+            <div class="flex flex-col justify-center border-r border-gray-500 border-solid w-32">
+              <div class="flex justify-center gap-2 py-4 px-4 mx-2 ">
+                <img src="../assets/weight.svg" alt="" width="16px" />
+                <span class="px-2"
+                  ><p class="text-justify text-sm">
                     {pokemon?.weight}
                   </p></span
                 >
               </div>
-              <div class="mt-10 text-center">
-                <p class="text-slate-500">Weight</p>
+              <div class="text-center py-2 px-8">
+                <p class="text-xs text-slate-500">weight</p>
               </div>
             </div>
-            <div class="border-r border-gray-500 border-solid">
-              <div class="w-96 flex flex-row justify-center gap-2">
+            <div class="flex flex-col justify-center border-r border-gray-500 border-solid w-32">
+              <div class="flex justify-center gap-2  py-4 px-4 mx-2 ">
                 <img
                   src="../assets/height.svg"
                   alt=""
                   class="transform rotate-90"
-                  width="35px"
+                  width="16px"
                 />
-                <span
-                  ><p class="text-justify text-lg">
-                    {pokemon?.weight}
+                <span class="px-2"
+                  ><p class="text-justify text-sm">
+                    {pokemon?.height}
                   </p></span
                 >
               </div>
-              <div class="mt-10 text-center">
-                <p class="text-slate-500">Height</p>
+              <div class="text-center py-2 px-8">
+                <p class="text-xs text-slate-500">height</p>
               </div>
             </div>
-            <div class="text-center">
-              <div class="w-96">
+            <div class="flex flex-col justify-center border-solid border-gray-500 text-center w-32">
+              <div class="gap-2 py-4 px-4 mx-2 ">
                 {#if pokemon?.abilities.length > 0}
                   {#each pokemon.abilities as ability, index}
-                    <span class=" flex flex-col">
-                      <p class="text-center text-lg">
+                    <span class=" flex flex-start">
+                      <p class="text-center text-xs">
                         {ability}
                       </p></span
                     >
                   {/each}
                 {/if}
               </div>
-              <div class="mt-10">
-                <p class="text-slate-500">Abilities</p>
+              <div class="text-center py-2 px-8">
+                <p class="text-xs text-slate-500">abilities</p>
               </div>
             </div>
           </div>
